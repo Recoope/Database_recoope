@@ -1,25 +1,25 @@
 CREATE TABLE Empresa ( 
     cnpj INT PRIMARY KEY,  
-    nome VARCHAR(),  
-    email VARCHAR(),  
-    senha VARCHAR(),  
-    telefone VARCHAR()  
+    nome VARCHAR(30),  
+    email VARCHAR(30),  
+    senha VARCHAR(15),--min 8 add check  
+    telefone VARCHAR(12)  
 ); 
 
 CREATE TABLE Endereco ( 
     id_endereco INT PRIMARY KEY,  
     complemento INT,  
-    cep VARCHAR(),  
-    bairro VARCHAR(),  
+    cep VARCHAR(9),  
+    bairro VARCHAR(30),  
     numero INT  
 ); 
 
 CREATE TABLE cooperativa ( 
     id_cooperativa INT PRIMARY KEY,  
-    nome VARCHAR(),  
-    email VARCHAR(),  
-    senha VARCHAR(),  
-    telefone VARCHAR()  
+    nome VARCHAR(30),  
+    email VARCHAR(30),  
+    senha VARCHAR(15),--min 8 add check  
+    telefone VARCHAR(12)  
 ); 
 
 CREATE TABLE Leilao ( 
@@ -41,14 +41,14 @@ CREATE TABLE lance (
 
 CREATE TABLE Produto ( 
     id_produto INT PRIMARY KEY,  
-    material VARCHAR(),  
+    material VARCHAR(20),  
     peso REAL,  
     idLeilao INT
 ); 
 
 CREATE TABLE Imagens ( 
     id INT PRIMARY KEY,  
-    url VARCHAR(),  
+    url VARCHAR(500),  
     idProduto INT 
 ); 
 
