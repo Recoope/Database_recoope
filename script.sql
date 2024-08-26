@@ -1,25 +1,26 @@
 CREATE TABLE Empresa ( 
     cnpj INT PRIMARY KEY NOT NULL,  
-    nome VARCHAR(30) DEFAULT "Nao Informado",  
-    email VARCHAR(30) NOT NULL,  
+    nome VARCHAR(100) DEFAULT "Nulo",  
+    email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),  
-    telefone VARCHAR(12) DEFAULT "00000-0000" 
+    telefone VARCHAR(13) DEFAULT "00000-0000" 
 ); 
 
 CREATE TABLE Endereco ( 
     id_endereco INT PRIMARY KEY NOT NULL,  
-    complemento INT DEFAULT "Sem complemento",  
+    complemento VARCHAR(50) DEFAULT "Nulo",  
     cep VARCHAR(9) NOT NULL,  
-    bairro VARCHAR(30) DEFAULT "Nao informado",  
-    numero INT NOT NULL
+    bairro VARCHAR(30) DEFAULT "Nulo",  
+    numero INT NOT NULL,
+    cidade VARCHAR(30) DEFAULT "Nulo"
 ); 
 
 CREATE TABLE cooperativa ( 
     id_cooperativa INT PRIMARY KEY NOT NULL,  
-    nome VARCHAR(30) DEFAULT "Nao Informado",  
-    email VARCHAR(30) NOT NULL,  
-    senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>8),  
-    telefone VARCHAR(12) DEFAULT "00000-0000"
+    nome VARCHAR(100) DEFAULT "Nulo",  
+    email VARCHAR(100) NOT NULL,  
+    senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),  
+    telefone VARCHAR(13) DEFAULT "00000-0000"
 ); 
 
 CREATE TABLE Leilao ( 
@@ -41,8 +42,8 @@ CREATE TABLE lance (
 
 CREATE TABLE Produto ( 
     id_produto INT PRIMARY KEY NOT NULL,  
-    material VARCHAR(20) DEFAULT "Nao Informado",  
-    peso REAL NOT NULL ,
+    material VARCHAR(30) DEFAULT "Nulo",  
+    peso REAL NOT NULL,
     idLeilao INT NOT NULL
 ); 
 
