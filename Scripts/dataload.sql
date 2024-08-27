@@ -7,12 +7,12 @@ INSERT INTO Empresa (cnpj, nome, email, senha, telefone) VALUES
 
 
 -- Inserir dados na tabela Endereco
-INSERT INTO Endereco (id_endereco, complemento, cep, bairro, numero) VALUES
-(1, 101, '12345-678', 'Bairro A', 10);
-(2, 202, '98765-432', 'Bairro B', 20);
-(3, 303, '94215-123', 'Bairro C', 30);
-(4, 404, '56932-245', 'Bairro D', 40);
-(5, 505, '34512-543', 'Bairro E', 50);
+INSERT INTO Endereco (id_endereco, complemento, cep, bairro, numero, cidade) VALUES
+(1, 'Casa', '12345-678', 'Bairro A', 10, 'Cidade A');
+(2, 'Apto', '98765-432', 'Bairro B', 20, 'Cidade B');
+(3, 'Bloco B', '94215-123', 'Bairro C', 30, 'Cidade C');
+(4, 'Casa', '56932-245', 'Bairro D', 40, 'Cidade D');
+(5, 'Sobrado', '34512-543', 'Bairro E', 50, 'Cidade E');
 
 -- Inserir dados na tabela Cooperativa
 INSERT INTO Cooperativa (id_cooperativa, nome, email, senha, telefone) VALUES
