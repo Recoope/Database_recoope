@@ -27,7 +27,7 @@ CREATE TABLE Cooperativa (
 
 CREATE TABLE Leilao ( 
     id_leilao INT PRIMARY KEY NOT NULL,  
-    data_inicio DATE NOT NULL,  
+    data_inicio DATE DEFAULT CURRENT_DATE,  
     data_fim DATE DEFAULT CURRENT_DATE,  
     valor_inicial REAL DEFAULT 0.0,  
     id_endereco INT NOT NULL,  
