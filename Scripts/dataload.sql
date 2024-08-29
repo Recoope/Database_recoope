@@ -1,55 +1,57 @@
-INSERT INTO Empresa (cnpj, nome, email, senha, telefone) VALUES
-(12345678901234, 'Empresa A', 'empresaA@gmail.com', 'senha1234', '1234567890');
-(23456789012345, 'Empresa B', 'empresaB@gmail.com', 'senha5678', '0987654321');
-(34567890123456, 'Empresa C', 'empresaC@gmail.com', 'senha7654', '9846224546');
-(45678901234567, 'Empresa D', 'empresaD@gmail.com', 'senha4690', '3852935568');
-(56789012345678, 'Empresa E', 'empresaE@gmail.com', 'senha9831', '5467892431');
+INSERT INTO Empresa (cnpj, nome, email, senha, telefone) VALUES 
+('12345678000195', 'Empresa A', 'contato@empresaa.com', 'senha1234', '1123456789'),
+('98765432000199', 'Empresa B', 'contato@empresab.com', 'senha5678', '2198765432'),
+('54321678000100', 'Empresa C', 'contato@empresac.com', 'senha9012', '3198765432'),
+('45678912345190', 'Empresa D', 'contato@empresad.com', 'senha5834', '4567891230'),
+('83423741824425', 'Empresa E', 'contato@empresae.com', 'senha5957', '5678901234'),
+('12953649514374', 'Empresa F', 'contato@empresaf.com', 'senha5321', '6789012345');
+
+INSERT INTO Endereco (id_endereco, numero, complemento, cep, bairro, cidade, logradouro, estado) VALUES 
+(1, 123, 'Apto 101', '12345-678', 'Centro', 'São Paulo', 'Rua Exemplo 1', 'SP'),
+(2, 456, 'Bloco A', '87654-321', 'Bairro Alto', 'Rio de Janeiro', 'Rua Exemplo 2', 'RJ'),
+(3, 789, 'Casa', '45678-123', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 3', 'MG'),
+(4, 654, 'apto 245', '98453-745', 'Bairro do Arroz', 'Osasco', 'Rua Exemplo 4', 'SP'),
+(5, 912, 'Fundos', '15489-452', 'Bairro C', 'Londrina', 'Rua Exemplo 5', 'SC'),
+(6, 467, 'Casa', '78923-657', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 6', 'MG');
+
+INSERT INTO Cooperativa (id_cooperativa, nome, email, senha, telefone) VALUES 
+(1, 'Cooperativa X', 'contato@cooperativax.com', 'senha1234', '1198765432'),
+(2, 'Cooperativa Y', 'contato@cooperativay.com', 'senha5678', '2198765432'),
+(3, 'Cooperativa C', 'contato@cooperativac.com', 'senha6745', '3456789012'),
+(4, 'Cooperativa Z', 'contato@cooperativaz.com', 'senha9123', '4567890123'),
+(5, 'Cooperativa D', 'contato@cooperativad.com', 'senha7346', '5678901234'),
+(6, 'Cooperativa I', 'contato@cooperativai.com', 'senha0157', '6789012345');
+
+INSERT INTO Leilao (id_leilao, data_inicio, data_fim, valor_inicial, id_endereco, id_cooperativa) VALUES 
+(1, '2024-08-28', '2024-09-01', 1000.0, 1, 1),
+(2, '2024-09-10', '2024-09-15', 2000.0, 2, 1),
+(3, '2024-09-20', NULL, 3000.0, 3, 2),
+(4, '2024-10-25', '2024-10-27', 4000.0, 4, 3),
+(5, '2024-05-12', '2024-06-02', 5000.0, 5, 4),
+(6, '2024-11-20', NULL, 6000.0, 6, 6);
 
 
--- Inserir dados na tabela Endereco
-INSERT INTO Endereco (id_endereco, complemento, cep, bairro, numero, cidade) VALUES
-(1, 'Casa', '12345-678', 'Bairro A', 10, 'Cidade A');
-(2, 'Apto', '98765-432', 'Bairro B', 20, 'Cidade B');
-(3, 'Bloco B', '94215-123', 'Bairro C', 30, 'Cidade C');
-(4, 'Casa', '56932-245', 'Bairro D', 40, 'Cidade D');
-(5, 'Sobrado', '34512-543', 'Bairro E', 50, 'Cidade E');
+INSERT INTO lance (id_lance, valor, data_lance, id_leilao, id_empresa) VALUES 
+(1, 1200.0, '2024-08-29', 1, '12345678000195'),
+(2, 2500.0, '2024-09-11', 2, '98765432000199'),
+(3, 3200.0, '2024-09-21', 3, '54321678000100'),
+(4, 4200.0, '2024-10-22', 4, '45678912345190'),
+(5, 5200.0, '2024-03-11', 5, '83423741824425'),
+(6, 1100.0, '2024-12-21', 6, '12953649514374');
 
--- Inserir dados na tabela Cooperativa
-INSERT INTO Cooperativa (id_cooperativa, nome, email, senha, telefone) VALUES
-(1, 'Cooperativa X', 'coopX@gmail.com', 'coop1234', '1234567890');
-(2, 'Cooperativa Y', 'coopY@gmail.com', 'coop5678', '0987654321');
-(3, 'Cooperativa Z', 'coopZ@gmail.com', 'coop3453', '2345127890');
-(4, 'Cooperativa A', 'coopA@gmail.com', 'coop7345', '3456789102');
-(5, 'Cooperativa V', 'coopV@gmail.com', 'coop5432', '6789123405');
 
--- Inserir dados na tabela Leilao
-INSERT INTO Leilao (id_leilao, valor_inicial, data_inicio, data_fim, id_endereco, id_cooperativa) VALUES
-(1, 1000.00, '2024-08-01', '2024-08-15', 1, 1);
-(2, 2000.00, '2024-09-01', '2024-09-15', 2, 2);
-(3, 3000.00, '2024-10-01', '2024-10-15', 3, 3);
-(4, 4000.00, '2024-11-01', '2024-11-15', 4, 4);
-(5, 5000.00, '2024-12-01', '2024-12-15', 5, 5);
+INSERT INTO Produto (id_produto, material, peso, id_leilao) VALUES 
+(1, 'Plástico', 500.0, 1),
+(2, 'Metal', 300.0, 2),
+(3, 'Vidro', 200.0, 3),
+(4, 'Papel', 700.0, 4),
+(5, 'Metal', 1000.0, 5),
+(6, 'Papelao', 100.0, 6);
 
--- Inserir dados na tabela Lance
-INSERT INTO Lance (id_lance, valor, data_lance, id_leilao, id_empresa) VALUES
-(1, 1200.00, '2024-08-02', 1, 12345678901234);
-(2, 2500.00, '2024-09-02', 2, 23456789012345);
-(3, 4300.00, '2024-10-02', 3, 34567890123456);
-(4, 2500.00, '2024-11-02', 4, 45678901234567);
-(5, 2200.00, '2024-12-02', 5, 56789012345678);
-
--- Inserir dados na tabela Produto
-INSERT INTO Produto (id_produto, material, peso, id_leilao) VALUES
-(1, 'aluminio', 500.0, 1);
-(2, 'cobre', 750.0, 2);
-(3, 'plastico', 560.0, 3);
-(4, 'vidro', 650.0, 4);
-(5, 'papelao', 1500.0, 5);
-
--- Inserir dados na tabela Imagens
-INSERT INTO Imagens (id, url, id_produto) VALUES
-(1, 'http://example.com/imagem1.jpg', 1);
-(2, 'http://example.com/imagem2.jpg', 2);
-(3, 'http://example.com/imagem3.jpg', 3);
-(4, 'http://example.com/imagem4.jpg', 4);
-(5, 'http://example.com/imagem5.jpg', 5);
+INSERT INTO Imagens (id_imagem, url, id_produto) VALUES 
+(1, 'http://example.com/imagem1.jpg', 1),
+(2, 'http://example.com/imagem2.jpg', 2),
+(3, 'http://example.com/imagem3.jpg', 3),
+(4, 'http://example.com/imagem4.jpg', 4),
+(5, 'http://example.com/imagem5.jpg', 5),
+(6, 'http://example.com/imagem6.jpg', 6);

@@ -1,65 +1,62 @@
 CREATE TABLE Empresa ( 
-    cnpj INT PRIMARY KEY NOT NULL,  
-    nome VARCHAR(100) NOT NULL,  
+    cnpj CHAR(14) PRIMARY KEY NOT NULL,
+    nome VARCHAR(100) NOT NULL,    
     email VARCHAR(100) NOT NULL,  
-    senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),  
-    telefone VARCHAR(13) DEFAULT "VAZIO" 
+    senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),
+    telefone VARCHAR(13) DEFAULT 'nulo'      
 ); 
 
-CREATE TABLE Endereco (
-    id_endereco SERIAL PRIMARY KEY NOT NULL,
-    logradouro VARCHAR(100) NOT NULL,
-    numero INT NOT NULL,
-    complemento VARCHAR(50) DEFAULT NULL,
+CREATE TABLE Endereco ( 
+    id_endereco INT PRIMARY KEY NOT NULL,
+    numero INT NOT NULL,  
+    complemento VARCHAR(50) DEFAULT NULL,  
+    cep VARCHAR(9) NOT NULL,   
     bairro VARCHAR(50) NOT NULL,
-    cidade VARCHAR(50) NOT NULL,
-    estado CHAR(2) NOT NULL,
-    cep VARCHAR(9) NOT NULL,
-    pais VARCHAR(50) DEFAULT 'Brasil'
-);
+    cidade VARCHAR(50) NOT NULL,      
+    logradouro VARCHAR(100) DEFAULT 'nulo',  
+    estado VARCHAR(50) NOT NULL  
+); 
 
-
-CREATE TABLE cooperativa ( 
+CREATE TABLE Cooperativa ( 
     id_cooperativa INT PRIMARY KEY NOT NULL,  
-    nome VARCHAR(100) DEFAULT "Nulo",  
+    nome VARCHAR(100) NOT NULL,  
     email VARCHAR(100) NOT NULL,  
-    senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),  
-    telefone VARCHAR(13) DEFAULT "00000-0000"
+    senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
+    telefone VARCHAR(13) DEFAULT 'nulo'  
 ); 
 
 CREATE TABLE Leilao ( 
     id_leilao INT PRIMARY KEY NOT NULL,  
-    valor_inicial REAL DEFAULT 0.0,  
     data_inicio DATE NOT NULL,  
     data_fim DATE DEFAULT CURRENT_DATE,  
-    idEndereco INT NOT NULL,  
-    idcooperativa INT NOT NULL
+    valor_inicial REAL DEFAULT 0.0,  
+    id_endereco INT NOT NULL,  
+    id_cooperativa INT NOT NULL,
+    FOREIGN KEY(id_endereco) REFERENCES Endereco(id_endereco),
+    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(id_cooperativa)
 ); 
 
 CREATE TABLE lance ( 
     id_lance INT PRIMARY KEY NOT NULL,  
     valor REAL NOT NULL,  
     data_lance DATE DEFAULT CURRENT_DATE,  
-    idLeilao INT NOT NULL,  
-    idEmpresa INT NOT NULL 
+    id_leilao INT NOT NULL,  
+    id_empresa CHAR(14) NOT NULL,
+    FOREIGN KEY(id_leilao) REFERENCES Leilao(id_leilao),
+    FOREIGN KEY(id_empresa) REFERENCES Empresa(cnpj)
 ); 
 
-CREATE TABLE Produto ( 
+CREATE TABLE Produto (
     id_produto INT PRIMARY KEY NOT NULL,  
-    material VARCHAR(30) DEFAULT "Nulo",  
-    peso REAL NOT NULL,
-    idLeilao INT NOT NULL
+    material VARCHAR(30) DEFAULT 'nulo',  
+    peso REAL NOT NULL,   
+    id_leilao INT NOT NULL,
+    FOREIGN KEY(id_leilao) REFERENCES Leilao(id_leilao)
 ); 
 
 CREATE TABLE Imagens ( 
-    id INT PRIMARY KEY NOT NULL,  
+    id_imagem INT PRIMARY KEY NOT NULL,  
     url VARCHAR(500) NOT NULL,  
-    idProduto INT NOT NULL 
-); 
-
-ALTER TABLE Leilao ADD FOREIGN KEY(idEndereco) REFERENCES Endereco (idEndereco)
-ALTER TABLE Leilao ADD FOREIGN KEY(idcooperativa) REFERENCES cooperativa (idcooperativa)
-ALTER TABLE lance ADD FOREIGN KEY(idLeilao) REFERENCES Leilao (idLeilao)
-ALTER TABLE lance ADD FOREIGN KEY(idEmpresa) REFERENCES Empresa (idEmpresa)
-ALTER TABLE Produto ADD FOREIGN KEY(idLeilao) REFERENCES Leilao (idLeilao)
-ALTER TABLE Imagens ADD FOREIGN KEY(idProduto) REFERENCES Produto (idProduto)
+    id_produto INT NOT NULL,
+    FOREIGN KEY(id_produto) REFERENCES Produto(id_produto)
+);
