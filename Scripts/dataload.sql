@@ -14,21 +14,21 @@ INSERT INTO Endereco (id_endereco, numero, complemento, cep, bairro, cidade, log
 (5, 912, 'Fundos', '15489-452', 'Bairro C', 'Londrina', 'Rua Exemplo 5', 'SC'),
 (6, 467, 'Casa', '78923-657', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 6', 'MG');
 
-INSERT INTO Cooperativa (id_cooperativa, nome, email, senha, telefone) VALUES 
-(1, 'Cooperativa X', 'contato@cooperativax.com', 'senha1234', '1198765432'),
-(2, 'Cooperativa Y', 'contato@cooperativay.com', 'senha5678', '2198765432'),
-(3, 'Cooperativa C', 'contato@cooperativac.com', 'senha6745', '3456789012'),
-(4, 'Cooperativa Z', 'contato@cooperativaz.com', 'senha9123', '4567890123'),
-(5, 'Cooperativa D', 'contato@cooperativad.com', 'senha7346', '5678901234'),
-(6, 'Cooperativa I', 'contato@cooperativai.com', 'senha0157', '6789012345');
+INSERT INTO Cooperativa (cnpj, nome, email, senha, telefone) VALUES 
+('12345678901243', 'Cooperativa X', 'contato@cooperativax.com', 'senha1234', '1198765432'),
+('98425102841331', 'Cooperativa Y', 'contato@cooperativay.com', 'senha5678', '2198765432'),
+('81437551000231', 'Cooperativa C', 'contato@cooperativac.com', 'senha6745', '3456789012'),
+('10987654322413', 'Cooperativa Z', 'contato@cooperativaz.com', 'senha9123', '4567890123'),
+('54637281903419', 'Cooperativa D', 'contato@cooperativad.com', 'senha7346', '5678901234'),
+('56473839102934', 'Cooperativa I', 'contato@cooperativai.com', 'senha0157', '6789012345');
 
 INSERT INTO Leilao (id_leilao, data_inicio, data_fim, valor_inicial, id_endereco, id_cooperativa) VALUES 
-(1, '2024-08-28', '2024-09-01', 1000.0, 1, 1),
-(2, '2024-09-10', '2024-09-15', 2000.0, 2, 1),
-(3, '2024-09-20', NULL, 3000.0, 3, 2),
-(4, '2024-10-25', '2024-10-27', 4000.0, 4, 3),
-(5, '2024-05-12', '2024-06-02', 5000.0, 5, 4),
-(6, '2024-11-20', NULL, 6000.0, 6, 6);
+(1, '2024-08-28', '2024-09-01', 1000.0, 1, '12345678901243'),
+(2, '2024-09-10', '2024-09-15', 2000.0, 2, '98425102841331'),
+(3, '2024-09-20', NULL, 3000.0, 3, '81437551000231'),
+(4, '2024-10-25', '2024-10-27', 4000.0, 4, '10987654322413'),
+(5, '2024-05-12', '2024-06-02', 5000.0, 5, '54637281903419'),
+(6, '2024-11-20', NULL, 6000.0, 6, '56473839102934');
 
 
 INSERT INTO lance (id_lance, valor, data_lance, id_leilao, id_empresa) VALUES 

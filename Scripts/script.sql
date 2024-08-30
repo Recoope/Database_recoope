@@ -18,7 +18,7 @@ CREATE TABLE Endereco (
 ); 
 
 CREATE TABLE Cooperativa ( 
-    id_cooperativa INT PRIMARY KEY NOT NULL,  
+    cnpj CHAR(14) PRIMARY KEY NOT NULL,  
     nome VARCHAR(100) NOT NULL,  
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
@@ -31,9 +31,9 @@ CREATE TABLE Leilao (
     data_fim DATE DEFAULT CURRENT_DATE,  
     valor_inicial REAL DEFAULT 0.0,  
     id_endereco INT NOT NULL,  
-    id_cooperativa INT NOT NULL,
+    id_cooperativa CHAR(14) NOT NULL,
     FOREIGN KEY(id_endereco) REFERENCES Endereco(id_endereco),
-    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(id_cooperativa)
+    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj)
 ); 
 
 CREATE TABLE lance ( 
