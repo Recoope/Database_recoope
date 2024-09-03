@@ -22,13 +22,13 @@ INSERT INTO Cooperativa (id_cooperativa, cnpj, nome, email, senha, telefone) VAL
 (5, '54637281903419', 'Cooperativa D', 'contato@cooperativad.com', 'senha7346', '5678901234'),
 (6, '56473839102934', 'Cooperativa I', 'contato@cooperativai.com', 'senha0157', '6789012345');
 
-INSERT INTO Leilao (id_leilao, data_inicio, data_fim, valor_inicial, detalhes, id_endereco, id_cooperativa) VALUES 
-(1, '2024-08-28', '2024-09-01', 1000.0, 'Uma caixa de madeira muito bem, valorizada criada em 1500', 1, 1),
-(2, '2024-09-10', '2024-09-15', 2000.0, 'Um pacote com cerca de uma tonelada de plastico', 2, 2),
-(3, '2024-09-20', NULL, 3000.0, 'Um pedaço de metal', 3, 3),
-(4, '2024-10-25', '2024-10-27', 4000.0, 'Varias latinhas de metal', 4, 4),
-(5, '2024-05-12', '2024-06-02', 5000.0, 'Um rolo de papel enorme', 5, 5),
-(6, '2024-11-20', NULL, 6000.0, 'Varias garrafas de metal enferrujadas', 6, 6);
+INSERT INTO Leilao (id_leilao, data_inicio, data_fim, valor_inicial, detalhes, hora_fim, id_endereco, id_cooperativa) VALUES 
+(1, '2024-08-28', '2024-09-01', 1000.0, 'Uma caixa de madeira muito bem, valorizada criada em 1500', '12:09:00', 1, 1),
+(2, '2024-09-10', '2024-09-15', 2000.0, 'Um pacote com cerca de uma tonelada de plastico', '13:20:00', 2, 2),
+(3, '2024-09-20', NULL, 3000.0, 'Um pedaço de metal', '07:30:20', 3, 3),
+(4, '2024-10-25', '2024-10-27', 4000.0, 'Varias latinhas de metal', '10:08:00', 4, 4),
+(5, '2024-05-12', '2024-06-02', 5000.0, 'Um rolo de papel enorme', '18:09:00', 5, 5),
+(6, '2024-11-20', NULL, 6000.0, 'Varias garrafas de metal enferrujadas', '21:20:00', 6, 6);
 
 INSERT INTO Lance (id_lance, valor, data_lance, id_leilao, id_empresa) VALUES 
 (1, 1200.0, '2024-08-29', 1, '12345678000195'),
