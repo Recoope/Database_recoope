@@ -33,6 +33,7 @@ CREATE TABLE Leilao (
     valor_inicial REAL DEFAULT 0.0,
     detalhes VARCHAR(300) DEFAULT 'nulo',
     hora_fim TIME DEFAULT CURRENT_TIME,
+    ativo BOOLEAN NOT NULL,
     id_endereco INT NOT NULL,  
     id_cooperativa INT NOT NULL,
     FOREIGN KEY(id_endereco) REFERENCES Endereco(id_endereco),
