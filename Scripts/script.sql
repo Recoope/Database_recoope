@@ -23,7 +23,8 @@ CREATE TABLE Cooperativa (
     nome VARCHAR(100) NOT NULL,  
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
-    telefone VARCHAR(13) DEFAULT 'nulo'  
+    telefone VARCHAR(13) DEFAULT 'nulo',
+    foto VARCHAR(500) DEFAULT 'nulo'  
 ); 
 
 CREATE TABLE Leilao ( 

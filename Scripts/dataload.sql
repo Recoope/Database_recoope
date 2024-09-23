@@ -14,13 +14,13 @@ INSERT INTO Endereco (id_endereco, numero, complemento, cep, bairro, cidade, log
 (5, 912, 'Fundos', '15489-452', 'Bairro C', 'Londrina', 'Rua Exemplo 5', 'PR'),
 (6, 467, 'Casa', '78923-657', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 6', 'MG');
 
-INSERT INTO Cooperativa (id_cooperativa, cnpj, nome, email, senha, telefone) VALUES 
-(1, '12345678901243', 'Cooperativa X', 'contato@cooperativax.com', 'senha1234', '1198765432'),
-(2, '98425102841331', 'Cooperativa Y', 'contato@cooperativay.com', 'senha5678', '2198765432'),
-(3, '81437551000231', 'Cooperativa C', 'contato@cooperativac.com', 'senha6745', '3456789012'),
-(4, '10987654322413', 'Cooperativa Z', 'contato@cooperativaz.com', 'senha9123', '4567890123'),
-(5, '54637281903419', 'Cooperativa D', 'contato@cooperativad.com', 'senha7346', '5678901234'),
-(6, '56473839102934', 'Cooperativa I', 'contato@cooperativai.com', 'senha0157', '6789012345');
+INSERT INTO Cooperativa (id_cooperativa, cnpj, nome, email, senha, telefone, foto) VALUES 
+(1, '12345678901243', 'Cooperativa X', 'contato@cooperativax.com', 'senha1234', '1198765432', 'http://examplo.com/foto1.jpg'),
+(2, '98425102841331', 'Cooperativa Y', 'contato@cooperativay.com', 'senha5678', '2198765432', 'http://examplo.com/foto2.jpg'),
+(3, '81437551000231', 'Cooperativa C', 'contato@cooperativac.com', 'senha6745', '3456789012', 'http://examplo.com/foto3.jpg'),
+(4, '10987654322413', 'Cooperativa Z', 'contato@cooperativaz.com', 'senha9123', '4567890123', 'http://examplo.com/foto4.jpg'),
+(5, '54637281903419', 'Cooperativa D', 'contato@cooperativad.com', 'senha7346', '5678901234', 'http://examplo.com/foto5.jpg'),
+(6, '56473839102934', 'Cooperativa I', 'contato@cooperativai.com', 'senha0157', '6789012345', 'http://examplo.com/foto6.jpg');
 
 INSERT INTO Leilao (id_leilao, data_inicio, data_fim, valor_inicial, detalhes, hora_fim, ativo, id_endereco, id_cooperativa) VALUES 
 (1, '2024-08-28', '2024-09-01', 1000.0, 'Uma caixa de madeira muito bem, valorizada criada em 1500', '12:09:00', TRUE, 1, 1),
