@@ -3,7 +3,7 @@ CREATE TABLE Empresa (
     nome VARCHAR(100) NOT NULL,    
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),
-    telefone VARCHAR(13) DEFAULT null    
+    telefone VARCHAR(20) DEFAULT NULL    
 ); 
 
 CREATE TABLE Endereco ( 
@@ -13,7 +13,7 @@ CREATE TABLE Endereco (
     cep VARCHAR(9) NOT NULL,   
     bairro VARCHAR(50) NOT NULL,
     cidade VARCHAR(50) NOT NULL,      
-    logradouro VARCHAR(100) DEFAULT null,  
+    logradouro VARCHAR(100) DEFAULT NULL,  
     estado VARCHAR(50) NOT NULL  
 ); 
 
@@ -22,17 +22,17 @@ CREATE TABLE Cooperativa (
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
-    telefone VARCHAR(13) DEFAULT null,
-    imagem bytea DEFAULT null  
+    telefone VARCHAR(20) DEFAULT NULL,
+    imagem bytea DEFAULT NULL  
 ); 
 
 CREATE TABLE Leilao ( 
     id INT PRIMARY KEY NOT NULL,  
     data_inicio DATE DEFAULT CURRENT_DATE,  
-    data_fim DATE not null,  
-    valor_inicial real DEFAULT 1.0,
+    data_fim DATE NOT NULL,  
+    valor_inicial REAL DEFAULT 1.0,
     id_endereco INT NOT NULL,  
-    id_cooperativa char NOT NULL,
+    id_cooperativa CHAR NOT NULL,
     FOREIGN KEY(id_endereco) REFERENCES Endereco(id),
     FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj)
 ); 
