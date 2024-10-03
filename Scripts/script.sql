@@ -3,7 +3,7 @@ CREATE TABLE Empresa (
     nome VARCHAR(100) NOT NULL,    
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),
-    telefone VARCHAR(20) DEFAULT NULL    
+    telefone VARCHAR(20) DEFAULT NULL 
 ); 
 
 CREATE TABLE Endereco ( 
@@ -14,16 +14,21 @@ CREATE TABLE Endereco (
     bairro VARCHAR(50) NOT NULL,
     cidade VARCHAR(50) NOT NULL,      
     logradouro VARCHAR(100) DEFAULT NULL,  
-    estado VARCHAR(50) NOT NULL  
+    estado VARCHAR(50) NOT NULL,
+    dados_status BOOLEAN DEFAULT TRUE,
+    status VARCHAR(10) DEFAULT 'Ativo'  
 ); 
 
 CREATE TABLE Cooperativa ( 
-    cnpj CHAR(14) PRIMARY KEY NOT NULL CHECK (LENGTH(cnpj) = 14),   
+    cnpj CHAR(14) PRIMARY KEY NOT NULL,   
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
     telefone VARCHAR(20) DEFAULT NULL,
-    imagem bytea DEFAULT NULL  
+    imagem bytea DEFAULT NULL,
+    dados_status BOOLEAN DEFAULT TRUE,
+    status VARCHAR(10) DEFAULT 'Ativo'  
+      
 ); 
 
 CREATE TABLE Leilao ( 
@@ -32,9 +37,11 @@ CREATE TABLE Leilao (
     data_fim DATE NOT NULL,  
     valor_inicial REAL DEFAULT 1.0,
     id_endereco INT NOT NULL,  
-    id_cooperativa CHAR NOT NULL,
+    id_cooperativa CHAR(14) NOT NULL,
+    dados_status BOOLEAN DEFAULT TRUE,
+    status VARCHAR(10) DEFAULT 'Ativo',
     FOREIGN KEY(id_endereco) REFERENCES Endereco(id),
-    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj)
+    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj) 
 ); 
 
 CREATE TABLE Lance ( 
@@ -49,15 +56,19 @@ CREATE TABLE Lance (
 
 CREATE TABLE Produto (
     id INT PRIMARY KEY NOT NULL,  
-    material VARCHAR(30) not null,  
+    material VARCHAR(30) NOT NULL,  
     peso REAL NOT NULL,   
     id_leilao INT NOT NULL,
-    FOREIGN KEY(id_leilao) REFERENCES Leilao(id)
+    dados_status BOOLEAN DEFAULT TRUE,
+    status VARCHAR(10) DEFAULT 'Ativo',
+    FOREIGN KEY(id_leilao) REFERENCES Leilao(id) 
 ); 
 
 CREATE TABLE Imagens ( 
     id INT PRIMARY KEY NOT NULL,  
-    imagem bytea NOT NULL,  
+    imagem bytea DEFAULT NULL,  
     id_produto INT NOT NULL,
+    dados_status BOOLEAN DEFAULT TRUE,
+    status VARCHAR(10) DEFAULT 'Ativo',  
     FOREIGN KEY(id_produto) REFERENCES Produto(id)
 );
