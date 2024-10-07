@@ -16,7 +16,7 @@ CREATE TABLE Endereco (
     logradouro VARCHAR(100) DEFAULT NULL,  
     estado VARCHAR(50) NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status VARCHAR(10) DEFAULT 'Ativo'  
+    status BOOLEAN DEFAULT TRUE  
 ); 
 
 CREATE TABLE Cooperativa ( 
@@ -27,19 +27,20 @@ CREATE TABLE Cooperativa (
     telefone VARCHAR(20) DEFAULT NULL,
     imagem bytea DEFAULT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status VARCHAR(10) DEFAULT 'Ativo'  
+    status BOOLEAN DEFAULT TRUE  
       
 ); 
 
 CREATE TABLE Leilao ( 
     id INT PRIMARY KEY NOT NULL,  
     data_inicio DATE DEFAULT CURRENT_DATE,  
-    data_fim DATE NOT NULL,  
+    data_fim DATE NOT NULL,
+    hora_fim TIME NOT NULL,  
     valor_inicial REAL DEFAULT 1.0,
     id_endereco INT NOT NULL,  
     id_cooperativa CHAR(14) NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status VARCHAR(10) DEFAULT 'Ativo',
+    status BOOLEAN DEFAULT TRUE,
     FOREIGN KEY(id_endereco) REFERENCES Endereco(id),
     FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj) 
 ); 
@@ -60,7 +61,7 @@ CREATE TABLE Produto (
     peso REAL NOT NULL,   
     id_leilao INT NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status VARCHAR(10) DEFAULT 'Ativo',
+    status BOOLEAN DEFAULT TRUE,
     FOREIGN KEY(id_leilao) REFERENCES Leilao(id) 
 ); 
 
@@ -69,6 +70,6 @@ CREATE TABLE Imagens (
     imagem bytea DEFAULT NULL,  
     id_produto INT NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status VARCHAR(10) DEFAULT 'Ativo',  
+    status BOOLEAN DEFAULT TRUE,  
     FOREIGN KEY(id_produto) REFERENCES Produto(id)
 );
