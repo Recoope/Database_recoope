@@ -31,18 +31,21 @@ CREATE TABLE Cooperativa (
       
 ); 
 
-CREATE TABLE Leilao ( 
-    id INT PRIMARY KEY NOT NULL,  
-    data_inicio DATE DEFAULT CURRENT_DATE,  
+CREATE TABLE Leilao (
+    id INT PRIMARY KEY NOT NULL,
+    data_inicio DATE DEFAULT CURRENT_DATE,
     data_fim DATE NOT NULL,
-    hora_fim TIME NOT NULL,  
+    hora TIME NOT NULL,
+    detalhe TEXT NOT NULL,
     valor_inicial REAL DEFAULT 1.0,
-    id_endereco INT NOT NULL,  
-    id_cooperativa CHAR(14) NOT NULL,
-    dados_status BOOLEAN DEFAULT TRUE,
     status BOOLEAN DEFAULT TRUE,
+    dados_status BOOLEAN DEFAULT TRUE, 
+    id_endereco INT NOT NULL,
+    id_cooperativa CHAR(14) NOT NULL,
+    id_produto int not null,
     FOREIGN KEY(id_endereco) REFERENCES Endereco(id),
-    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj) 
+    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj),
+    FOREIGN KEY(id_produto) REFERENCES Produto(id)
 ); 
 
 CREATE TABLE Lance ( 
@@ -56,13 +59,11 @@ CREATE TABLE Lance (
 ); 
 
 CREATE TABLE Produto (
-    id INT PRIMARY KEY NOT NULL,  
-    material VARCHAR(30) NOT NULL,  
-    peso REAL NOT NULL,   
-    id_leilao INT NOT NULL,
+    id INT PRIMARY KEY NOT NULL,
+    material VARCHAR(30) NOT NULL,
+    peso REAL NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status BOOLEAN DEFAULT TRUE,
-    FOREIGN KEY(id_leilao) REFERENCES Leilao(id) 
+    status BOOLEAN DEFAULT TRUE 
 ); 
 
 CREATE TABLE Imagens ( 

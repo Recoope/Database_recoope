@@ -22,13 +22,13 @@
     ('56789012345678', 'Cooperativa D', 'contato@cooperativad.com', 'senha7346', '11989017234', NULL, TRUE, TRUE),
     ('67890123456789', 'Cooperativa I', 'contato@cooperativai.com', 'senha0157', '67980127345', NULL, TRUE, TRUE);
 
-    INSERT INTO Leilao (id, data_inicio, data_fim, hora_fim, valor_inicial, id_endereco, id_cooperativa, dados_status, status) VALUES 
-    (1, '2024-08-28', '2024-09-01', '15:00:00', 1000.0, 1, '12345678901234', TRUE, TRUE),
-    (2, '2024-09-10', '2024-09-15', '10:20:00', 2000.0, 2, '23456789065489', TRUE, TRUE),
-    (3, '2024-09-20', '2025-01-10', '00:09:00', 3000.0, 3, '34567890123456', TRUE, TRUE),
-    (4, '2024-10-25', '2024-10-27', '12:10:00', 4000.0, 4, '45678901234586', TRUE, TRUE),
-    (5, '2024-05-12', '2024-06-02', '09:45:00', 5000.0, 5, '56789012345678', TRUE, TRUE),
-    (6, '2024-11-20', '2024-12-17', '17:50:00', 6000.0, 6, '67890123456789', TRUE, TRUE);
+    INSERT INTO Leilao (id, data_inicio, data_fim, hora_fim, detalhe, valor_inicial, status, dados_status, id_endereco, id_cooperativa, id_produto) VALUES 
+    (1, '2024-08-28', '2024-09-01', '15:00:00', 'detalhes', 1000.0, TRUE, TRUE, 1, '12345678901234', 1),
+    (2, '2024-09-10', '2024-09-15', '10:20:00', 'detalhes', 2000.0, TRUE, TRUE, 2, '23456789065489', 2),
+    (3, '2024-09-20', '2025-01-10', '00:09:00', 'detalhes', 3000.0, TRUE, TRUE, 3, '34567890123456', 3),
+    (4, '2024-10-25', '2024-10-27', '12:10:00', 'detalhes', 4000.0, TRUE, TRUE, 4, '45678901234586', 4),
+    (5, '2024-05-12', '2024-06-02', '09:45:00', 'detalhes', 5000.0, TRUE, TRUE, 5, '56789012345678', 5),
+    (6, '2024-11-20', '2024-12-17', '17:50:00', 'detalhes', 6000.0, TRUE, TRUE, 6, '67890123456789', 6);
 
     INSERT INTO Lance (id, valor, data_lance, id_leilao, id_empresa) VALUES 
     (1, 1200.0, '2024-08-29', 1, '12345678000195'),
@@ -38,13 +38,13 @@
     (5, 5200.0, '2024-03-11', 5, '83423741824425'),
     (6, 1100.0, '2024-12-21', 6, '12953649514374');
 
-    INSERT INTO Produto (id, material, peso, id_leilao, dados_status, status) VALUES 
-    (1, 'Plástico', 500.0, 1, TRUE, TRUE),
-    (2, 'Metal', 300.0, 2, TRUE, TRUE),
-    (3, 'Vidro', 200.0, 3, TRUE, TRUE),
-    (4, 'Papel', 700.0, 4, TRUE, TRUE),
-    (5, 'Metal', 1000.0, 5, TRUE, TRUE),
-    (6, 'Papelao', 100.0, 6, TRUE, TRUE);
+    INSERT INTO Produto (id, material, peso, dados_status, status) VALUES 
+    (1, 'Plástico', 500.0, TRUE, TRUE),
+    (2, 'Metal', 300.0, TRUE, TRUE),
+    (3, 'Vidro', 200.0, TRUE, TRUE),
+    (4, 'Papel', 700.0, TRUE, TRUE),
+    (5, 'Metal', 1000.0, TRUE, TRUE),
+    (6, 'Papelao', 100.0, TRUE, TRUE);
 
     INSERT INTO Imagens (id, imagem, id_produto, dados_status, status) VALUES 
     (1, NULL, 1, TRUE, TRUE),
