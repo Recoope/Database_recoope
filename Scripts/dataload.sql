@@ -46,7 +46,7 @@
     (5, 5200.0, '2024-03-11', 5, '83423741824425'),
     (6, 1100.0, '2024-12-21', 6, '12953649514374');
 
-    INSERT INTO Imagens (id, imagem, id_produto, dados_status, status) VALUES 
+    INSERT INTO Imagem (id, imagem, id_produto, dados_status, status) VALUES 
     (1, NULL, 1, TRUE, TRUE),
     (2, NULL, 2, TRUE, TRUE),
     (3, NULL, 3, TRUE, TRUE),
