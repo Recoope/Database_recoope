@@ -69,7 +69,7 @@ CREATE TABLE Lance (
 CREATE TABLE Imagens ( 
     id SERIAL PRIMARY KEY NOT NULL,  
     imagem BYTEA DEFAULT NULL,  
-    id_produto INT NOT NULL,
+    id_produto SERIAL NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
     status BOOLEAN DEFAULT TRUE,  
     FOREIGN KEY(id_produto) REFERENCES Produto(id)
