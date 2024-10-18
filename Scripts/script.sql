@@ -66,7 +66,7 @@ CREATE TABLE Lance (
     FOREIGN KEY(id_empresa) REFERENCES Empresa(cnpj)
 ); 
 
-CREATE TABLE imagem ( 
+CREATE TABLE Imagem ( 
     id SERIAL PRIMARY KEY NOT NULL,  
     imagem BYTEA DEFAULT NULL,  
     id_produto SERIAL NOT NULL,
