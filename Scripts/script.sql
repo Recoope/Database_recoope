@@ -1,5 +1,5 @@
 CREATE TABLE Empresa ( 
-    cnpj VARCHAR(14) PRIMARY KEY NOT NULL,
+    cnpj CHAR(14) PRIMARY KEY NOT NULL,
     nome VARCHAR(100) NOT NULL,    
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),
@@ -20,7 +20,7 @@ CREATE TABLE Endereco (
 ); 
 
 CREATE TABLE Cooperativa ( 
-    cnpj VARCHAR(14) PRIMARY KEY NOT NULL,   
+    cnpj CHAR(14) PRIMARY KEY NOT NULL,   
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
@@ -44,12 +44,12 @@ CREATE TABLE Leilao (
     data_inicio DATE DEFAULT CURRENT_DATE,
     data_fim DATE NOT NULL,
     hora_fim TIME NOT NULL,
-    detalhe VARCHAR() NOT NULL,
+    detalhe TEXT NOT NULL,
     valor_inicial REAL DEFAULT 1.0,
     status BOOLEAN DEFAULT TRUE,
     dados_status BOOLEAN DEFAULT TRUE, 
     id_endereco SERIAL NOT NULL,
-    id_cooperativa VARCHAR(14) NOT NULL,
+    id_cooperativa CHAR(14) NOT NULL,
     id_produto SERIAL not null,
     FOREIGN KEY(id_endereco) REFERENCES Endereco(id),
     FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj),
@@ -61,7 +61,7 @@ CREATE TABLE Lance (
     valor REAL NOT NULL,  
     data_lance DATE DEFAULT CURRENT_DATE,  
     id_leilao SERIAL NOT NULL,  
-    id_empresa VARCHAR(14) NOT NULL,
+    id_empresa CHAR(14) NOT NULL,
     FOREIGN KEY(id_leilao) REFERENCES Leilao(id),
     FOREIGN KEY(id_empresa) REFERENCES Empresa(cnpj)
 ); 
