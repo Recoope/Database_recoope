@@ -25,7 +25,7 @@ CREATE TABLE Cooperativa (
     email VARCHAR(100) NOT NULL,  
     senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
     telefone VARCHAR(20) DEFAULT NULL,
-    imagem VARCHAR(50) DEFAULT NULL,
+    imagem VARCHAR(500) DEFAULT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
     status BOOLEAN DEFAULT TRUE  
       
@@ -68,7 +68,7 @@ CREATE TABLE Lance (
 
 CREATE TABLE Imagem (
     id SERIAL PRIMARY KEY NOT NULL,  
-    imagem VARCHAR(50) DEFAULT NULL,  
+    imagem VARCHAR(500) DEFAULT NULL,  
     id_produto SERIAL NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
     status BOOLEAN DEFAULT TRUE,  
