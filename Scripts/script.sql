@@ -2,7 +2,7 @@ CREATE TABLE Empresa (
     cnpj CHAR(14) PRIMARY KEY NOT NULL,
     nome VARCHAR(100) NOT NULL,    
     email VARCHAR(100) NOT NULL,  
-    senha VARCHAR(15) NOT NULL CHECK (LENGTH(senha)>=8),
+    senha VARCHAR(64) NOT NULL CHECK (LENGTH(senha) >= 8),
     telefone VARCHAR(20) DEFAULT NULL 
 ); 
 
@@ -16,27 +16,26 @@ CREATE TABLE Endereco (
     logradouro VARCHAR(100) DEFAULT NULL,  
     estado VARCHAR(50) NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status BOOLEAN DEFAULT TRUE  
+    ativo BOOLEAN DEFAULT TRUE  
 ); 
 
 CREATE TABLE Cooperativa ( 
     cnpj CHAR(14) PRIMARY KEY NOT NULL,   
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,  
-    senha VARCHAR(15) NOT NULL CHECK(LENGTH(senha)>=8),  
+    senha VARCHAR(64) NOT NULL CHECK (LENGTH(senha) >= 8),  
     telefone VARCHAR(20) DEFAULT NULL,
     imagem VARCHAR(500) DEFAULT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status BOOLEAN DEFAULT TRUE  
-      
+    ativo BOOLEAN DEFAULT TRUE  
 );
 
 CREATE TABLE Produto (
     id SERIAL PRIMARY KEY NOT NULL,
     material VARCHAR(30) NOT NULL,
-    peso REAL NOT NULL,
+    peso REAL NOT NULL CHECK (peso > 0),
     dados_status BOOLEAN DEFAULT TRUE,
-    status BOOLEAN DEFAULT TRUE 
+    ativo BOOLEAN DEFAULT TRUE 
 );
 
 CREATE TABLE Leilao (
@@ -45,32 +44,32 @@ CREATE TABLE Leilao (
     data_fim DATE NOT NULL,
     hora_fim TIME NOT NULL,
     detalhe TEXT NOT NULL,
-    valor_inicial REAL DEFAULT 1.0,
-    status BOOLEAN DEFAULT TRUE,
+    valor_inicial REAL DEFAULT 1.0 CHECK (valor_inicial > 0),
+    ativo BOOLEAN DEFAULT TRUE,
     dados_status BOOLEAN DEFAULT TRUE, 
-    id_endereco SERIAL NOT NULL,
+    id_endereco INT NOT NULL,
     id_cooperativa CHAR(14) NOT NULL,
-    id_produto SERIAL not null,
-    FOREIGN KEY(id_endereco) REFERENCES Endereco(id),
-    FOREIGN KEY(id_cooperativa) REFERENCES Cooperativa(cnpj),
-    FOREIGN KEY(id_produto) REFERENCES Produto(id)
+    id_produto INT NOT NULL,
+    FOREIGN KEY (id_endereco) REFERENCES Endereco(id),
+    FOREIGN KEY (id_cooperativa) REFERENCES Cooperativa(cnpj),
+    FOREIGN KEY (id_produto) REFERENCES Produto(id)
 ); 
 
 CREATE TABLE Lance ( 
     id SERIAL PRIMARY KEY NOT NULL,  
-    valor REAL NOT NULL,  
+    valor REAL NOT NULL CHECK (valor > 0),  
     data_lance DATE DEFAULT CURRENT_DATE,  
-    id_leilao SERIAL NOT NULL,  
+    id_leilao INT NOT NULL,  
     id_empresa CHAR(14) NOT NULL,
-    FOREIGN KEY(id_leilao) REFERENCES Leilao(id),
-    FOREIGN KEY(id_empresa) REFERENCES Empresa(cnpj)
+    FOREIGN KEY (id_leilao) REFERENCES Leilao(id),
+    FOREIGN KEY (id_empresa) REFERENCES Empresa(cnpj)
 ); 
 
 CREATE TABLE Imagem (
     id SERIAL PRIMARY KEY NOT NULL,  
     imagem VARCHAR(500) DEFAULT NULL,  
-    id_produto SERIAL NOT NULL,
     dados_status BOOLEAN DEFAULT TRUE,
-    status BOOLEAN DEFAULT TRUE,  
-    FOREIGN KEY(id_produto) REFERENCES Produto(id)
+    ativo BOOLEAN DEFAULT TRUE,
+    id_produto INT NOT NULL,  
+    FOREIGN KEY (id_produto) REFERENCES Produto(id)
 );
