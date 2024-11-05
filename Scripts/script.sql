@@ -14,9 +14,9 @@ CREATE TABLE Endereco (
     bairro VARCHAR(50) NOT NULL,
     cidade VARCHAR(50) NOT NULL,      
     logradouro VARCHAR(100) DEFAULT NULL,  
-    estado VARCHAR(50) NOT NULL,
-    dados_status BOOLEAN DEFAULT TRUE,
-    ativo BOOLEAN DEFAULT TRUE  
+    estado VARCHAR(2) NOT NULL,
+    dados_status VARCHAR(10) DEFAULT 'Ativo',
+    ativo VARCHAR(10) DEFAULT 'Ativo'  
 ); 
 
 CREATE TABLE Cooperativa ( 
@@ -26,16 +26,16 @@ CREATE TABLE Cooperativa (
     senha VARCHAR(64) NOT NULL CHECK (LENGTH(senha) >= 8),  
     telefone VARCHAR(20) DEFAULT NULL,
     imagem VARCHAR(500) DEFAULT NULL,
-    dados_status BOOLEAN DEFAULT TRUE,
-    ativo BOOLEAN DEFAULT TRUE  
+    dados_status VARCHAR(10) DEFAULT 'Ativo',
+    ativo VARCHAR(10) DEFAULT 'Ativo'  
 );
 
 CREATE TABLE Produto (
     id SERIAL PRIMARY KEY NOT NULL,
     material VARCHAR(30) NOT NULL,
     peso REAL NOT NULL CHECK (peso > 0),
-    dados_status BOOLEAN DEFAULT TRUE,
-    ativo BOOLEAN DEFAULT TRUE 
+    dados_status VARCHAR(10) DEFAULT 'Ativo',
+    ativo VARCHAR(10) DEFAULT 'Ativo'
 );
 
 CREATE TABLE Leilao (
@@ -45,8 +45,8 @@ CREATE TABLE Leilao (
     hora_fim TIME NOT NULL,
     detalhe TEXT NOT NULL,
     valor_inicial REAL DEFAULT 1.0 CHECK (valor_inicial > 0),
-    ativo BOOLEAN DEFAULT TRUE,
-    dados_status BOOLEAN DEFAULT TRUE, 
+    ativo VARCHAR(10) DEFAULT 'Ativo',
+    dados_status VARCHAR(10) DEFAULT 'Ativo', 
     id_endereco INT NOT NULL,
     id_cooperativa CHAR(14) NOT NULL,
     id_produto INT NOT NULL,
@@ -68,8 +68,8 @@ CREATE TABLE Lance (
 CREATE TABLE Imagem (
     id SERIAL PRIMARY KEY NOT NULL,  
     imagem VARCHAR(500) DEFAULT NULL,  
-    dados_status BOOLEAN DEFAULT TRUE,
-    ativo BOOLEAN DEFAULT TRUE,
+    dados_status VARCHAR(10) DEFAULT 'Ativo',
+    ativo VARCHAR(10) DEFAULT 'Ativo',
     id_produto INT NOT NULL,  
     FOREIGN KEY (id_produto) REFERENCES Produto(id)
 );

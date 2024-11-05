@@ -17,21 +17,21 @@ INSERT INTO Cooperativa (cnpj, nome, email, senha, telefone, imagem) VALUES
 
 -- Carregamento da tabela Endereco
 INSERT INTO Endereco (numero, complemento, cep, bairro, cidade, logradouro, estado) VALUES
-(123, 'Apto 101', '12345-678', 'Centro', 'São Paulo', 'Rua Exemplo 1', 'SP'),
-(456, 'Bloco A', '87654-321', 'Bairro Alto', 'Rio de Janeiro', 'Rua Exemplo 2', 'RJ'),
-(789, 'Casa', '45678-123', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 3', 'MG'),
-(654, 'Apto 245', '98453-745', 'Bairro do Arroz', 'Osasco', 'Rua Exemplo 4', 'SP'),
-(912, 'Fundos', '15489-452', 'Bairro C', 'Londrina', 'Rua Exemplo 5', 'PR'),
-(467, 'Casa', '78923-657', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 6', 'MG');
+(123, 'Apto 101', '12345678', 'Centro', 'São Paulo', 'Rua Exemplo 1', 'SP'),
+(456, 'Bloco A', '87654321', 'Bairro Alto', 'Rio de Janeiro', 'Rua Exemplo 2', 'RJ'),
+(789, 'Casa', '45678123', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 3', 'MG'),
+(654, 'Apto 245', '98453745', 'Bairro do Arroz', 'Osasco', 'Rua Exemplo 4', 'SP'),
+(912, 'Fundos', '15489452', 'Bairro C', 'Londrina', 'Rua Exemplo 5', 'PR'),
+(467, 'Casa', '78923657', 'Jardim', 'Belo Horizonte', 'Rua Exemplo 6', 'MG');
 
 -- Carregamento da tabela Produto
 INSERT INTO Produto (material, peso) VALUES
-('Plástico', 500.0),
-('Metal', 300.0),
-('Vidro', 200.0),
-('Papel', 700.0),
-('Metal', 1000.0),
-('Papelao', 100.0);
+('plastico', 500.0),
+('metal', 300.0),
+('vidro', 200.0),
+('papel', 700.0),
+('metal', 1000.0),
+('madeira', 100.0);
 
 -- Carregamento da tabela Leilao
 INSERT INTO Leilao (data_inicio, data_fim, hora_fim, detalhe, valor_inicial, id_endereco, id_cooperativa, id_produto) VALUES
@@ -66,9 +66,9 @@ INSERT INTO Lance (valor, id_leilao, id_empresa) VALUES
 
 -- Carregamento da tabela Imagem
 INSERT INTO Imagem (imagem, id_produto) VALUES
-(NULL, 1),
-(NULL, 2),
-(NULL, 3),
-(NULL, 4),
-(NULL, 5),
-(NULL, 6);
+('https://res.cloudinary.com/djp7qx1vz/image/upload/v1730469732/i03sasofn33wg66qf3na.jpg', 1),
+('https://res.cloudinary.com/djp7qx1vz/image/upload/v1730732166/drjljsa1sg67tqco8odi.jpg', 2),
+('https://res.cloudinary.com/djp7qx1vz/image/upload/v1730732199/g1qyx2a1yqsollxc2wmi.jpg', 3),
+('https://res.cloudinary.com/djp7qx1vz/image/upload/v1730732217/qsotplbjjsxhragkrqqt.jpg', 4),
+('https://res.cloudinary.com/djp7qx1vz/image/upload/v1730732166/drjljsa1sg67tqco8odi.jpg', 5),
+('https://res.cloudinary.com/djp7qx1vz/image/upload/v1730732185/rcpoo1walch73w2d3zya.jpg', 6);
