@@ -5,7 +5,7 @@ A linguagem utilizada para a criação do banco foi o SQL, que também foi impor
 
 ## Banco de Dados 🧮
 
-O Banco utlizado foi o PostgreSQL, um Banco Relacional, para podermos utilizar a conexão entre duas tabelas.
+O Banco utlizado foi o PostgreSQL, um Banco Relacional, para podermos utilizar a conexão entre tabelas.
 
 ## Instalação 📥
 
